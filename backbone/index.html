@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Layer Backbone example</title>
+  <meta name="description" content="Layer Backbone example">
+  <meta name="author" content="Nil Gradisnik">
+
+  <link rel="shortcut icon" href="http://static.layer.com/web/favicon.png">
+
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" type="text/css">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Common CSS and Identity dialog -->
+  <link href="common/style.css" rel="stylesheet">
+  <script src="common/layerSample.js"></script>
+
+  <!-- Layer Web SDK -->
+  <script src="http://static.layer.com/sdk/layer-private-beta.js"></script>
+
+  <!-- Backbone build -->
+  <script src="bundle.js"></script>
+</head>
+<body>
+  <div class="main-app">
+    <div class="messenger">
+      <div class="left-panel">
+        <div class="panel-header conversations-header">
+          <div class='title'></div>
+          <a href='#conversations/new' class='create-conversation' title="Create a new conversation">
+            <i class="icon fa fa-pencil-square-o"></i>
+          </a>
+        </div>
+        <div class="conversation-list"></div>
+      </div>
+      <div class="right-panel">
+        <div class='conversation-header panel-header'></div>
+        <div class="message-list"><img class="layer-logo" src="http://static.layer.com/logo-only-black.svg" /></div>
+        <div class="user-list"></div>
+        <div class='typing-indicator-panel'></div>
+        <div class="message-composer">
+          <input class="message-textarea" placeholder="Enter a message..."></input>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

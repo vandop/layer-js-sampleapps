@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "curly": [2, "multi-line"],
+    "quotes": [2, "single", "avoid-escape"],
+    "camelcase": [2, {"properties": "never"}]
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  }
+}
