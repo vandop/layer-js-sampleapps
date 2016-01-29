@@ -12,7 +12,7 @@ Each sample app implementation is framework specific and not necessarily a demon
 
 ## The Web SDK
 
-The Web SDK in all samples is loaded via script tag directly from our [CDN](http://static.layer.com/sdk/layer-private-beta.js). For more information on how the Web SDK works, see [Web SDK Docs](http://static.layer.com/sdk/docs).
+The Web SDK in all samples is loaded via script tag directly from our [CDN](https://cdn.layer.com/sdk/0.9/layer-websdk.js). For more information on how the Web SDK works, see [Web SDK Docs](https://developer.layer.com/docs/websdk).
 
 ## Authentication and identity
 
