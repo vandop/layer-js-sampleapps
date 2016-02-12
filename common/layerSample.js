@@ -93,7 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     button.innerHTML = '<i class="fa fa-spinner fa-pulse"></i>';
 
-    window.layerSample.appId = localStorage.layerAppId = appId;
+    window.layerSample.appId = appId;
+    try {
+       localStorage.layerAppId = appId;
+    } catch(e) {}
 
     var radios = div.getElementsByTagName('input');
     for (var i = 0; i < radios.length; i++) {
