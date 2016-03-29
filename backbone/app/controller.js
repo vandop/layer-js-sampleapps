@@ -131,7 +131,7 @@ module.exports = function(client) {
   sendView.on('conversation:create', function(text) {
     // See http://static.layer.com/sdk/docs/#!/api/layer.Conversation
     var conversation = client.createConversation(newConversation);
-    conversation.createMessage(text).send();
+    conversation.createMessage(text).send({text: text});
     conversation.on('conversations:sent', function() {
       var uuid = conversation.id.substr(conversation.id.lastIndexOf('/') + 1);
       router.navigate('conversations/' + uuid, {trigger: true});

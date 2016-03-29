@@ -25,7 +25,7 @@ module.exports = Backbone.View.extend({
     if (e.keyCode !== 13 || !text) return true;
     console.log('send: ' + text);
 
-    if (this.conversation) this.conversation.createMessage(text).send();
+    if (this.conversation) this.conversation.createMessage(text).send({text: text});
     else this.trigger('conversation:create', text);
 
     e.target.value = '';
