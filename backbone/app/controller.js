@@ -132,9 +132,17 @@ module.exports = function(client) {
     // See http://static.layer.com/sdk/docs/#!/api/layer.Conversation
     var conversation = client.createConversation(newConversation);
     conversation.createMessage(text).send();
+
+    // Update our location.
+    var uuid = conversation.id.substr(conversation.id.lastIndexOf('/') + 1);
+    router.navigate('conversations/' + uuid, {trigger: true});
     conversation.on('conversations:sent', function() {
+      // A Conversation ID may change after its sent
+      // if the server returns a matching Distinct Conversation.
       var uuid = conversation.id.substr(conversation.id.lastIndexOf('/') + 1);
-      router.navigate('conversations/' + uuid, {trigger: true});
+      if (location.hash !== '#conversations/' + uuid) {
+        router.navigate('conversations/' + uuid, {trigger: true});
+      }
     });
   });
 

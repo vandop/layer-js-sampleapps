@@ -52,16 +52,21 @@ controllers.controller('newConversationCtrl', function($scope) {
       // Create the Conversation
       var conversationInstance = $scope.appCtrlState.client.createConversation({
         participants: participants,
-        distinct: participants.length === 1,
+        distinct: participants.length === 2,
         metadata: metadata
       });
 
-      // Once its been sent, update our location and rerender.
+      // Update our location.
+      location.hash = '#' + conversationInstance.id.substring(8);
       conversationInstance.once('conversations:sent', function() {
-        // TODO: Angular Experts: Why does $location.hash(conversationInstance.id.substring(8)) fail?
-        location.hash = '#' + conversationInstance.id.substring(8);
-        $scope.$digest();
+        // A Conversation ID may change after its sent
+        // if the server returns a matching Distinct Conversation.
+        if (location.hash !== '#' + conversationInstance.id.substring(8)) {
+          location.hash = '#' + conversationInstance.id.substring(8);
+          $scope.$digest();
+        }
       });
+
 
       // Create and send the Message.  Note that sending the Message
       // will also insure that the Conversation gets created if needed.

@@ -34,8 +34,12 @@ function handleAction(layerClient, typingPublisher, state, action, next) {
           }
         });
 
+        const originalId = conversation.id;
+        next(selectConversation(originalId));
         conversation.on('conversations:sent', () => {
-          next(selectConversation(conversation.id));
+          if (originalId !== conversation.id) {
+            next(selectConversation(conversation.id));
+          }
         });
 
         conversation.createMessage(state.newConversation.composerMessage).send();
