@@ -4,6 +4,9 @@ This sample app takes the existing AngularJS Sample App and updates it to work w
 
 Demo is done using Android.  Additional code is needed for IOS support.
 
+Demo is done using phonegap rather than cordova; it should be possible to replace every place where there is a `phonegap` command with a
+`cordova` command.
+
 ## How to Build a Phonegap/Cordova App
 
 The following steps explain the process used to do this; you should be able to follow comparable steps to turn your own app into a Cordova App.  To straight up run this project, see the Run The Sample section below.
@@ -74,8 +77,9 @@ The following steps explain the process used to do this; you should be able to f
 ## How to Run the Sample
 
 1. Run: sudo npm install phonegap -g
-2. Open up phonegap/www/app/main-controller.js and replace MY-SENDER-ID with your project number/SENDER_ID from https://console.developers.google.com/
+2. Open up phonegap/www/app/main-controller.js and replace MY-SENDER-ID with your project number/SENDER_ID from https://console.cloud.google.com/home/dashboard
 3. Run: phonegap plugin add phonegap-plugin-push --variable  SENDER_ID="YOUR_SENDER_ID"
-    * Get your SENDER_ID from https://console.developers.google.com/
-    * Make sure that you have enabled push notifications on https://console.developers.google.com/
+    * Get your SENDER_ID from https://console.cloud.google.com/home/dashboard
+    * Make sure that you have enabled push notifications on https://console.cloud.google.com/home/dashboard
     * Make sure to log into the Layer Developer Dashboard, Select your App, and select `Push`, and enter your Android push settings.
+4. Run: phonegap run android
