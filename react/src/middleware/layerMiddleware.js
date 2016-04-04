@@ -38,11 +38,15 @@ function handleAction(layerClient, typingPublisher, state, action, next) {
           next(selectConversation(conversation.id));
         });
 
-        conversation.createMessage(state.newConversation.composerMessage).send();
+        conversation.createMessage(state.newConversation.composerMessage).send({
+          text: 'New Message: ' + state.activeConversation.composerMessage
+        });
       } else {
         layerClient
           .getConversation(`layer:///conversations/${state.router.params.conversationId}`, true)
-          .createMessage(state.activeConversation.composerMessage).send();
+          .createMessage(state.activeConversation.composerMessage).send({
+            text: 'New Message: ' + state.activeConversation.composerMessage
+          });
 
         typingPublisher.setState(FINISHED);
       }

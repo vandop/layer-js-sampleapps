@@ -56,18 +56,14 @@ controllers.controller('newConversationCtrl', function($scope) {
         metadata: metadata
       });
 
-      // Once its been sent, update our location and rerender.
+      // Once its been sent, update our selected conversation.
       conversationInstance.once('conversations:sent', function() {
-        // TODO: Angular Experts: Why does $location.hash(conversationInstance.id.substring(8)) fail?
-        location.hash = '#' + conversationInstance.id.substring(8);
-        $scope.$digest();
+        $scope.loadConversation(conversationInstance.id);
       });
 
       // Create and send the Message.  Note that sending the Message
       // will also insure that the Conversation gets created if needed.
-      conversationInstance.createMessage($scope.sendText).send({
-        text: 'New Message: ' + $scope.sendText
-      });
+      conversationInstance.createMessage($scope.sendText).send();
 
       // Reset state
       $scope.sendText = '';

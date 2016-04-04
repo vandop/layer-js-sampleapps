@@ -26,9 +26,7 @@ controllers.controller('conversationCtrl', function($scope) {
   $scope.send = function() {
     var conversationInstance = $scope.appCtrlState.client.getConversation($scope.chatCtrlState.currentConversation.id);
     if (conversationInstance) {
-      conversationInstance.createMessage($scope.sendText).send({
-        text: 'New Message: ' + $scope.sendText
-      });
+      conversationInstance.createMessage($scope.sendText).send();
       $scope.sendText = '';
     }
   };

@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="ChatApp" class='angularjs'>
+<head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src * 'unsafe-inline'; media-src *">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <meta charset="utf-8">
+  <meta name="description" content="Layer Angular example">
+
+  <title>Layer Angular example</title>
+
+  <script src="cordova.js"></script>
+
+  <link rel="shortcut icon" href="http://static.layer.com/web/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Common CSS and Identity dialog -->
+  <link href="common/style.css" rel="stylesheet">
+  <script src="common/layerSample.js"></script>
+
+  <!-- Layer Web SDK -->
+  <script src='https://cdn.layer.com/sdk/0.9/layer-websdk.min.js'></script>
+
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js'></script>
+  <script src='lib/ng-infinite-scroll.min.js'></script>
+
+  <!-- Angular app -->
+  <script src='app/app.js'></script>
+  <script src='app/main-controllers.js'></script>
+  <script src='app/conversation-panel-controllers.js'></script>
+  <script src='app/new-conversation-panel-controllers.js'></script>
+</head>
+<body ng-controller="appCtrl">
+    <div class="main-app" ng-include="'partials/app.html'"
+         ng-if="appCtrlState.isReady"></div>
+</body>
+</html>
