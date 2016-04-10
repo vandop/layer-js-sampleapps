@@ -8,7 +8,7 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var config = require('./webpack.config');
 
 var app = express();
-var port = 8080;
+var port = normalizePort(process.env.PORT || '3000');
 
 var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
@@ -26,3 +26,23 @@ app.listen(port, function(error) {
     console.info('Webpack devServer started. Open http://localhost:' + port + ' in your browser.');
   }
 });
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
